@@ -1,11 +1,10 @@
 import Sidebar from "@/components/shared/Sidebar";
-import React from "react";
+import React, { ReactNode } from "react";
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div>
-      <Sidebar></Sidebar>
-      {children}
+    <div className="flex">
+      <Sidebar> {children}</Sidebar>
     </div>
   );
 };

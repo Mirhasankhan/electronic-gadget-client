@@ -1,10 +1,26 @@
-import React from "react";
+import DetailCard from "@/components/Product/DetailCard";
+import { TProduct } from "@/types/product.type";
 
-const Product = ({ params, searchParams }) => {
+type TParams = {
+  params: {
+    productId: string;
+  };
+};
+
+const Product = async ({ params }: TParams) => {
+  const res = await fetch(
+    `http://localhost:5000/allProducts/${params.productId}`,
+    {
+      cache: "no-store",
+    }
+  );
+  const singleProduct = await res.json();
+
   return (
     <div>
-      this is dynamic page
-      <button className="btn btn-accent">Accent</button>
+      {singleProduct?.map((sp: TProduct) => (
+        <DetailCard key={sp._id} single={sp}></DetailCard>
+      ))}
     </div>
   );
 };
