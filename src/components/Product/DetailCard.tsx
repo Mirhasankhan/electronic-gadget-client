@@ -11,16 +11,17 @@ const DetailCard = ({ single }: { single: TProduct }) => {
     <div className=" mx-6 md:mx-14 my-5">
       <div className="grid grid-cols-7 gap-5">
         <div className="bg-green-400 col-span-1">hell</div>
-        <div className="col-span-3 ">
-          <Image
-            className="rounded-lg"
-            src={image}
-            height={800}
-            width={800}
-            alt=""
-          />
+        <div className="col-span-6 md:col-span-3 ">
+          <div style={{ height: "320px", width: "100%", position: "relative" }}>
+            <Image
+              className="border rounded-md"
+              layout="fill"
+              src={image}
+              alt=""
+            />
+          </div>
         </div>
-        <div className="col-span-3">
+        <div className="col-span-6 md:col-span-3">
           <h1 className="pt-5">{name}</h1>
           <div className="flex items-center mt-4 border-b pb-6">
             <h1 className="border-r-2 pr-2 mr-2">${price}</h1>

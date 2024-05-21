@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Brands = async () => {
-  // const res = await fetch("http://localhost:5000/brands");
+  // const res = await fetch("https://electronic-gadget-server.vercel.app/brands");
   // const allBrands = await res.json();
   return (
     <div className="mx-6 md:mx-24 my-8">

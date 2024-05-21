@@ -9,7 +9,7 @@ type TParams = {
 
 const Product = async ({ params }: TParams) => {
   const res = await fetch(
-    `http://localhost:5000/allProducts/${params.productId}`,
+    `https://electronic-gadget-server.vercel.app/allProducts/${params.productId}`,
     {
       cache: "no-store",
     }

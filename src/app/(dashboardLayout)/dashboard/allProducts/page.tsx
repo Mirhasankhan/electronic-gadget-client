@@ -3,9 +3,12 @@ import Image from "next/image";
 import React from "react";
 
 const AllProducts = async () => {
-  const res = await fetch("http://localhost:5000/allProducts", {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    "https://electronic-gadget-server.vercel.app/allProducts",
+    {
+      cache: "no-store",
+    }
+  );
   const allProducts = await res.json();
   return (
     <div>

@@ -4,9 +4,12 @@ import Image from "next/image";
 import React from "react";
 
 const FlashSalePage = async () => {
-  const res = await fetch("http://localhost:5000/allProducts", {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    "https://electronic-gadget-server.vercel.app/allProducts",
+    {
+      cache: "no-store",
+    }
+  );
   const allProducts = await res.json();
   const flashSaleProduct = allProducts.filter(
     (flash: TProduct) => flash.flash_sale == true
@@ -31,13 +34,16 @@ const FlashSalePage = async () => {
         <div className="grid md:grid-cols-4 gap-6 mt-6">
           {flashSaleProduct?.map((trend: TProduct) => (
             <div className="border p-2 rounded-md" key={trend._id}>
-              <Image
-                className="rounded-md pb-1"
-                src={trend.image}
-                width={400}
-                height={500}
-                alt=""
-              />
+              <div
+                style={{ height: "220px", width: "100%", position: "relative" }}
+              >
+                <Image
+                  className="border rounded-md hover:scale-110 transition-transform duration-600"
+                  layout="fill"
+                  src={trend.image}
+                  alt=""
+                />
+              </div>
               <h1>{trend.name}</h1>
               <p className="text-orange-400">
                 ${(trend.price * 0.9).toFixed(2)}

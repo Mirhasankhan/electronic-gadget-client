@@ -5,9 +5,12 @@ import React from "react";
 import CountdownTimer from "./CountDown";
 
 const FlashSale = async () => {
-  const res = await fetch("http://localhost:5000/allProducts", {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    "https://electronic-gadget-server.vercel.app/allProducts",
+    {
+      cache: "no-store",
+    }
+  );
   const allProducts = await res.json();
   const flashSaleProduct = allProducts.filter(
     (flash: TProduct) => flash.flash_sale == true
@@ -21,8 +24,8 @@ const FlashSale = async () => {
         <h1 className="text-2xl font-semibold">Flash Sale</h1>
       </div>
       <div className="flex justify-between items-center border-b pb-2">
-        <div className="flex gap-24">
-          <h1 className="text-red-400">On Sale Now</h1>
+        <div className="md:flex gap-24">
+          <h1 className="text-red-400 pb-3">On Sale Now</h1>
           <div className="flex gap-2">
             Ending In :<CountdownTimer targetDate={targetDate}></CountdownTimer>
           </div>
@@ -35,20 +38,23 @@ const FlashSale = async () => {
           </Link>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-6 mt-3">
+      <div className="grid md:grid-cols-4 gap-6 mt-3">
         {flashSaleProduct?.slice(0, 4).map((trend: TProduct) => (
           <div
-            className="shadow-md rounded-md p-2 hover:border-2"
+            className="shadow-md rounded-md p-2 hover:border-2 overflow-hidden"
             key={trend._id}
           >
             <Link href={`/products/${trend._id}`}>
-              <Image
-                className="rounded-md"
-                src={trend.image}
-                width={350}
-                height={100}
-                alt=""
-              />
+              <div
+                style={{ height: "220px", width: "100%", position: "relative" }}
+              >
+                <Image
+                  className="border rounded-md hover:scale-110 transition-transform duration-600"
+                  layout="fill"
+                  src={trend.image}
+                  alt=""
+                />
+              </div>
               <h1>{trend.name}</h1>
               <p className="text-orange-400">
                 ${(trend.price * 0.9).toFixed(2)}

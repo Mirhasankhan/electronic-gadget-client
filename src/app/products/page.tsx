@@ -13,26 +13,40 @@ type TSearch = {
 const Products = async ({ searchParams }: TSearch) => {
   const url =
     searchParams && searchParams.brand
-      ? `http://localhost:5000/allProducts?brand=${searchParams.brand}`
-      : "http://localhost:5000/allProducts";
+      ? `https://electronic-gadget-server.vercel.app/allProducts?brand=${searchParams.brand}`
+      : "https://electronic-gadget-server.vercel.app/allProducts";
   const res = await fetch(url, {
     cache: "no-store",
   });
   const allProducts = await res.json();
 
   return (
-    <div className="grid grid-cols-4 mx-6 md:mx-14 gap-3 mt-6 pb-3">
+    <div className="md:grid grid-cols-5 mx-6 md:mx-14 gap-3 mt-6 pb-3">
       <div className="col-span-1">
         <BrandSelector />
       </div>
-      <div className="col-span-3">
-        <h1 className="font-semibold text-2xl">Our Collection Of Products</h1>
-        <div className="grid grid-cols-3 gap-6">
+      <div className="col-span-4">
+        <h1 className="font-semibold text-xl md:text-2xl py-4 pl-6">
+          Our Collection Of Products
+        </h1>
+        <div className="grid md:grid-cols-3 gap-6">
           {allProducts?.map((p: TProduct) => (
-            <div key={p._id}>
+            <div className="border p-2 overflow-hidden rounded-md" key={p._id}>
               <Link href={`/products/${p._id}`}>
-                <h1>{p.brand}</h1>
-                <Image src={p.image} width={500} height={500} alt="" />
+                <div
+                  style={{
+                    height: "220px",
+                    width: "100%",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    className="border rounded-md hover:scale-110 transition-transform duration-600"
+                    layout="fill"
+                    src={p.image}
+                    alt=""
+                  />
+                </div>
                 <h1>{p.name}</h1>
 
                 <p>{p.description}</p>
