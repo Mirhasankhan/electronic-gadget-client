@@ -10,8 +10,8 @@ const DetailCard = ({ single }: { single: TProduct }) => {
   return (
     <div className=" mx-6 md:mx-14 my-5">
       <div className="grid grid-cols-7 gap-5">
-        <div className="bg-green-400 col-span-1">hell</div>
-        <div className="col-span-6 md:col-span-3 ">
+        {/* <div className="bg-green-400 col-span-1">hell</div> */}
+        <div className="col-span-7 md:col-span-3 ">
           <div style={{ height: "320px", width: "100%", position: "relative" }}>
             <Image
               className="border rounded-md"
@@ -21,7 +21,7 @@ const DetailCard = ({ single }: { single: TProduct }) => {
             />
           </div>
         </div>
-        <div className="col-span-6 md:col-span-3">
+        <div className="col-span-7 md:col-span-3">
           <h1 className="pt-5">{name}</h1>
           <div className="flex items-center mt-4 border-b pb-6">
             <h1 className="border-r-2 pr-2 mr-2">${price}</h1>
@@ -51,21 +51,21 @@ const DetailCard = ({ single }: { single: TProduct }) => {
       <div>
         <h1 className="font-semibold text-2xl py-5">Description</h1>
         <p className="text-justify">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ex
-          officia porro perspiciatis, sunt pariatur eaque tenetur, ut accusamus
-          quis nostrum voluptates doloribus non quisquam, aliquam ab obcaecati
-          assumenda natus modi. Odit ipsam ullam, nesciunt sint earum alias
-          soluta et rerum, necessitatibus aperiam unde! Vel non ratione sunt
-          quidem molestias praesentium provident, molestiae, placeat facilis
-          laboriosam accusantium incidunt deserunt. Totam libero eaque, sit iste
-          quam culpa voluptas perspiciatis omnis ab doloribus ut consequuntur
-          quidem recusandae dolor, quis odio ipsam ducimus!
+          {name} redefines innovation and performance. Equipped with a
+          lightning-fast octa-core processor, it ensures seamless multitasking
+          and smooth operation. Its 6.7-inch AMOLED display delivers vibrant
+          colors and stunning clarity, perfect for streaming and gaming. Capture
+          life’s moments with the 108MP quad-camera system, offering
+          professional-grade photography at your fingertips. The 5000mAh battery
+          provides long-lasting power, keeping you connected throughout the day.
         </p>
         <ul className="list-disc mt-5 pl-5">
-          <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
-          <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
-          <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
-          <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
+          <li>
+            Enjoy enhanced security with the in-display fingerprint sensor.
+          </li>
+          <li>Stay updated with the latest Android OS.</li>
+          <li>Fast charging capabilities for minimal downtime.</li>
+          <li>Dual SIM support for versatile connectivity options.</li>
         </ul>
       </div>
     </div>

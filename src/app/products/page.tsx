@@ -1,5 +1,6 @@
 import BrandSelector from "@/components/shared/Filter";
 import { TProduct } from "@/types/product.type";
+import { Rating } from "@smastrom/react-rating";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -47,9 +48,18 @@ const Products = async ({ searchParams }: TSearch) => {
                     alt=""
                   />
                 </div>
-                <h1>{p.name}</h1>
+                <h1 className="text-xl font-semibold py-2">{p.name}</h1>
 
                 <p>{p.description}</p>
+                <div className="flex items-center gap-2 mt-4 pb-1">
+                  <h1 className="">${p.price}</h1>
+                  <Rating
+                    className=""
+                    style={{ maxWidth: 100 }}
+                    value={Math.round(p.rating)}
+                    readOnly
+                  />
+                </div>
               </Link>
             </div>
           ))}

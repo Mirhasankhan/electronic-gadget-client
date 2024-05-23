@@ -7,6 +7,16 @@ type TParams = {
   };
 };
 
+const generateStaticParams = async () => {
+  const res = await fetch(
+    "https://electronic-gadget-server.vercel.app/allProducts"
+  );
+  const product = await res.json();
+  return product.slice(0, 9).map((p: TProduct) => ({
+    productId: p._id,
+  }));
+};
+
 const Product = async ({ params }: TParams) => {
   const res = await fetch(
     `https://electronic-gadget-server.vercel.app/allProducts/${params.productId}`,

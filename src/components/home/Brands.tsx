@@ -14,9 +14,11 @@ const Brands = async () => {
     <div className="mx-6 md:mx-24 my-8">
       <div className="text-center">
         <h1 className="text-2xl font-semibold">Top Brands</h1>
-        <p className="text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-          eligendi <br /> dolorum nemo eos? Esse, dicta ab!
+        <p className="text-gray-500 py-3">
+          When it comes to top brands that have made significant impacts across
+          various <br /> industries, a few names consistently stand out due to
+          their innovation, quality, and customer loyalty.
+          <br />
         </p>
       </div>
       <div className="md:grid grid-cols-4 gap-8 mt-8">

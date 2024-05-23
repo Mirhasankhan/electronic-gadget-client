@@ -8,7 +8,9 @@ const FlashSale = async () => {
   const res = await fetch(
     "https://electronic-gadget-server.vercel.app/allProducts",
     {
-      cache: "no-store",
+      next: {
+        revalidate: 30,
+      },
     }
   );
   const allProducts = await res.json();
@@ -33,7 +35,7 @@ const FlashSale = async () => {
         <div>
           <Link href="/flash-sale">
             <button className="bg-black p-3 rounded-md text-white">
-              View All
+              See All
             </button>
           </Link>
         </div>
@@ -55,7 +57,7 @@ const FlashSale = async () => {
                   alt=""
                 />
               </div>
-              <h1>{trend.name}</h1>
+              <h1 className="text-xl font-semibold py-2">{trend.name}</h1>
               <p className="text-orange-400">
                 ${(trend.price * 0.9).toFixed(2)}
               </p>

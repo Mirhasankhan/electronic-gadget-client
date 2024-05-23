@@ -8,7 +8,9 @@ const TrendingProducts = async () => {
   const res = await fetch(
     "https://electronic-gadget-server.vercel.app/allProducts",
     {
-      cache: "no-store",
+      next: {
+        revalidate: 30,
+      },
     }
   );
   const trending = await res.json();
@@ -36,7 +38,10 @@ const TrendingProducts = async () => {
       </div>
       <div className="grid md:grid-cols-3 gap-6 mt-6">
         {sortedProducts?.slice(0, 6).map((trend: TProduct) => (
-          <div key={trend._id}>
+          <div
+            className="border p-2 rounded-md overflow-hidden"
+            key={trend._id}
+          >
             <Link href={`/products/${trend._id}`}>
               <div
                 style={{ height: "220px", width: "100%", position: "relative" }}
@@ -48,8 +53,8 @@ const TrendingProducts = async () => {
                   alt=""
                 />
               </div>
-              <h1>{trend.name}</h1>
-              <div className="flex items-center gap-2 mt-4 border-b pb-6">
+              <h1 className="text-xl font-semibold py-2">{trend.name}</h1>
+              <div className="flex items-center gap-2 mt-2 pb-2">
                 <h1 className="">${trend.price}</h1>
                 <Rating
                   className=""

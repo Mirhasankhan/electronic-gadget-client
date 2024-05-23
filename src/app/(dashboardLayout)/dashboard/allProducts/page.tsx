@@ -32,13 +32,20 @@ const AllProducts = async () => {
                 <tr key={product._id}>
                   <th>{index + 1}</th>
                   <td>
-                    <Image
-                      className="rounded-full"
-                      src={product.image}
-                      height={100}
-                      width={100}
-                      alt=""
-                    />
+                    <div
+                      style={{
+                        height: "60px",
+                        width: "60px",
+                        position: "relative",
+                      }}
+                    >
+                      <Image
+                        className="border rounded-full hover:scale-110 transition-transform duration-600"
+                        layout="fill"
+                        src={product.image}
+                        alt=""
+                      />
+                    </div>
                   </td>
                   <td>{product.name}</td>
                   <td>{product.brand}</td>
